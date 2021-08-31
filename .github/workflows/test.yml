@@ -1,0 +1,38 @@
+name: SM71 Client CI - Test & Lint
+
+on: [push, pull_request]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [13.x]
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+            - name: Use Node.js ${{matrix.node-version}}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{matrix.node-version}}
+            - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+            - run: yarn
+            - run: yarn lint
+
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [13.x]
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+            - name: Use Node.js ${{ matrix.node-version}}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{matrix.node-version}}
+            - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+            - run: yarn
+            - run: yarn test
