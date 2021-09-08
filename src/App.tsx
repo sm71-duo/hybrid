@@ -6,7 +6,7 @@ import RecordingView from 'Views/RecordingView'; //Not usefull
 const App = () => {
     return (
         <View>
-            <RecordingView />
+            <LiveAudioStreamView />
         </View>
     );
 };
