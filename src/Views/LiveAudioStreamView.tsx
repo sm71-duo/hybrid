@@ -12,7 +12,6 @@ const options: Options = {
     audioSource: 6,
     bufferSize: 4096
 };
-let test = 0;
 
 LiveAudioStream.on('data', (data) => {
     console.log(data);
