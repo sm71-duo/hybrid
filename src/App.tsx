@@ -8,13 +8,15 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
+    Button,
     SafeAreaView,
     ScrollView,
     StatusBar,
     StyleSheet,
     Text,
+    TouchableOpacity,
     useColorScheme,
     View
 } from 'react-native';
@@ -26,6 +28,8 @@ import {
     LearnMoreLinks,
     ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen';
+
+import io from 'socket.io-client';
 
 const Section: React.FC<{
     title: string;
@@ -57,9 +61,37 @@ const Section: React.FC<{
 
 const App = () => {
     const isDarkMode = useColorScheme() === 'dark';
+    const socket = io('http://localhost:8080', {
+        rejectUnauthorized: false
+    });
+
+    socket.on('connection', (socketio: any) => {
+        console.log('Made socket connection');
+    });
+
+    socket.on('connect_error', (err) => {
+        console.log(`connect_error due to ${err.message}`);
+    });
 
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
+    };
+
+    useEffect(() => {
+        console.log(socket);
+        // socket.on('connection', (socketio: any) => {
+        //     console.log('Made socket connection');
+        // });
+
+        // socket.emit('chat message', 'hi server!');
+
+        // socket.on('chat message', (data) => {
+        //     console.log('Data recieved from server', data);
+        // });
+    });
+
+    const clicked = () => {
+        socket.emit('chat message', 'Click');
     };
 
     return (
@@ -67,22 +99,11 @@ const App = () => {
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
                 <Header />
-                <View
-                    style={{
-                        backgroundColor: isDarkMode ? Colors.black : Colors.white
-                    }}>
-                    <Section title="Step One">
-                        Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and
-                        then come back to see your edits.
-                    </Section>
-                    <Section title="See Your Changes">
-                        <ReloadInstructions />
-                    </Section>
-                    <Section title="Debug">
-                        <DebugInstructions />
-                    </Section>
-                    <Section title="Learn More">Read the docs to discover what to do next:</Section>
-                    <LearnMoreLinks />
+                <View>
+                    <Text> Socket.io with react native </Text>
+                    <TouchableOpacity onPress={clicked}>
+                        <Text>Click</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </SafeAreaView>
