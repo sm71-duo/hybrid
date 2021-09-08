@@ -21,8 +21,10 @@
     "react-native-elements": "^3.4.2",
     "react-native-live-audio-stream": "^1.1.1",
     "react-native-permissions": "^3.0.5",
+    "react-native-recording": "^0.5.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-webview": "^11.13.0",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
