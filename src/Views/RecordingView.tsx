@@ -15,9 +15,8 @@ const RecordingView = () => {
                 channelsPerFrame: 1
             });
         });
+        const listener = Recording.addRecordingEventListener((data) => console.log(data));
     }, []);
-
-    const listener = Recording.addRecordingEventListener((data) => console.log(data));
 
     const startRecording = () => {
         Recording.start();
@@ -25,7 +24,6 @@ const RecordingView = () => {
 
     const stopRecording = () => {
         Recording.stop();
-        listener.remove();
     };
 
     return (
