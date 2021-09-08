@@ -1,12 +1,13 @@
 import App from './App';
 import React from 'react';
-import { View } from 'react-native';
+import { ThemeProvider } from 'react-native-elements';
+import { elementsStyle } from 'shared/styling';
 
 const Root = (): JSX.Element => {
     return (
-        <View>
+        <ThemeProvider theme={elementsStyle}>
             <App />
-        </View>
+        </ThemeProvider>
     );
 };
 
