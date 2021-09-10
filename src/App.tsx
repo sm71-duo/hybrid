@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from 'views/Home';
+import Details from 'views/Details';
+
+export type RootStackParamList = {
+  Home: undefined;
+  Details: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
-  useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3000');
-
-    ws.onmessage = (event: WebSocketMessageEvent) => {
-      const data = JSON.parse(event.data);
-      console.log(data);
-    };
-
-    ws.onerror = (error: any) => {
-      console.log(error);
-    };
-  });
-
-  return <View />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Details" component={Details} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
