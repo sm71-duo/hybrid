@@ -22,19 +22,6 @@ export const palette = {
     facebook: '#4267B2'
 };
 
-export const font = {
-    bold: 'NunitoSans-Bold',
-    normal: 'NunitoSans-Regular',
-    light: 'NunitoSans-Light',
-    header: 'Quicksand-Bold',
-    headerRegular: {
-        fontFamily: 'Quicksand-Regular'
-    },
-    headerBold: {
-        fontFamily: 'Quicksand-Bold'
-    }
-};
-
 export const variables = {
     borderRadius: {
         xsmall: 8,
@@ -70,29 +57,9 @@ export const spacing = {
     s9: 36
 };
 
-export const InputField = styled(Input).attrs({
-    labelStyle: {
-        color: palette.dark,
-        fontFamily: font.normal,
-        fontSize: 14,
-        fontWeight: 'normal',
-        opacity: 0.75,
-        paddingBottom: spacing.s1
-    },
-    inputContainerStyle: {
-        backgroundColor: palette.light,
-        paddingLeft: 16,
-        paddingRight: 16,
-        padding: 5,
-        borderRadius: 12,
-        borderBottomColor: 'rgba(0,0,0,0)'
-    }
-})``;
-
 export const HeaderTitle = styled.Text`
     color: ${palette.dark};
     font-size: 36px;
-    font-family: ${font.bold};
 `;
 
 export const ModalTitle = styled.Text`
@@ -103,7 +70,6 @@ export const ModalTitle = styled.Text`
 export const BaseTitle = styled.Text`
     color: ${palette.dark};
     font-size: 16px;
-    font-family: ${font.bold};
 `;
 
 export const Subtitle = styled.Text`
@@ -128,7 +94,6 @@ export const Standard = styled.Text`
 
 export const SmallTitle = styled.Text`
     color: ${palette.dark};
-    font-family: ${font.bold};
     font-size: 14px;
 `;
 
@@ -152,64 +117,21 @@ export const fontSize = {
     small: 10
 };
 
-export const components = StyleSheet.create({
-    viewContainer: {
-        paddingTop: 15,
-        paddingBottom: 15,
-        flex: 1
-    },
-    card: {
-        borderRadius: variables.borderRadius.medium
-    },
-    flexBox: {
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    header: {
-        fontSize: 20
-    },
-    title: {
-        fontSize: 17
-    },
-    subtitle: {
-        fontSize: 15
-    },
-    standard: {
-        fontSize: 12
-    },
-    small: {
-        fontSize: 10
-    },
-    headerTitle: {
-        fontSize: 20,
-        fontFamily: font.bold
-    },
-    headerBackTitle: {
-        fontSize: 16,
-        fontFamily: font.normal
-    }
-});
-
 export const elementsStyle: Theme = {
     Button: {
         buttonStyle: {
             marginVertical: spacing.s1,
             borderRadius: variables.borderRadius.medium
         },
-        titleStyle: {
-            fontFamily: font.normal
-        }
+        titleStyle: {}
     },
     Text: {
         style: {
-            fontFamily: font.normal,
             color: palette.dark
         }
     },
     Badge: {
-        textStyle: {
-            fontFamily: font.normal
-        }
+        textStyle: {}
     },
     SearchBar: {
         containerStyle: {
@@ -236,7 +158,6 @@ export const elementsStyle: Theme = {
             color: palette.primary
         },
         style: {
-            fontFamily: font.normal,
             color: palette.dark,
             borderWidth: 0
         }
@@ -251,7 +172,6 @@ export const elementsStyle: Theme = {
             borderBottomColor: 'rgba(0,0,0,0)'
         },
         style: {
-            fontFamily: font.normal,
             color: palette.dark
         },
         containerStyle: {
@@ -262,7 +182,6 @@ export const elementsStyle: Theme = {
     },
     ListItem: {
         titleStyle: {
-            fontFamily: font.normal,
             color: palette.dark
         }
     },

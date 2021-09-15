@@ -9,8 +9,14 @@ const App = () => {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="Home" component={HomeOverview} />
+            <Tab.Navigator initialRouteName="Home">
+                <Tab.Screen
+                    name="Home"
+                    component={HomeOverview}
+                    options={{
+                        headerShown: false
+                    }}
+                />
                 <Tab.Screen name="Profile" component={ProfileOverview} />
             </Tab.Navigator>
         </NavigationContainer>
