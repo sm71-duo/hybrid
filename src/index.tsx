@@ -1,20 +1,17 @@
 import App from './App';
 import React from 'react';
-import { StatusBar, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { elementsStyle } from 'shared/styling';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Root = (): JSX.Element => {
     return (
-        <View>
-            <ThemeProvider theme={elementsStyle}>
-                <NavigationContainer>
-                    <App />
-                    <StatusBar barStyle="default" />
-                </NavigationContainer>
-            </ThemeProvider>
-        </View>
+        <ThemeProvider theme={elementsStyle}>
+            <SafeAreaProvider>
+                <App />
+            </SafeAreaProvider>
+        </ThemeProvider>
     );
 };
 
