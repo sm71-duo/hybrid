@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeOverview from 'views/HomeOverview';
-import ProfileOverview from 'views/ProfileOverview';
+import HomeView from 'views/HomeView';
+import ProfileView from 'views/ProfileView';
 import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
@@ -12,12 +12,12 @@ const App = () => {
             <Tab.Navigator initialRouteName="Home">
                 <Tab.Screen
                     name="Home"
-                    component={HomeOverview}
+                    component={HomeView}
                     options={{
                         headerShown: false
                     }}
                 />
-                <Tab.Screen name="Profile" component={ProfileOverview} />
+                <Tab.Screen name="Profile" component={ProfileView} />
             </Tab.Navigator>
         </NavigationContainer>
     );

@@ -1,12 +1,13 @@
+import HomeOverview from 'components/home/HomeOverview';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { spacing } from 'shared/styling';
 import styled from 'styled-components/native';
 
-const HomeOverview = () => {
+const HomeView = () => {
     return (
         <Wrapper>
-            <DisplayWrapper></DisplayWrapper>
+            <HomeOverview />
         </Wrapper>
     );
 };
@@ -17,11 +18,4 @@ const Wrapper = styled.View`
     flex: 1;
 `;
 
-const DisplayWrapper = styled.View`
-    background-color: #a2bea0;
-    padding: 16px;
-    border-radius: 12px;
-    height: 150px;
-`;
-
-export default HomeOverview;
+export default HomeView;
