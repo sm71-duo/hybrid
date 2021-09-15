@@ -1,12 +1,16 @@
 import App from './App';
 import React from 'react';
-import { View } from 'react-native';
+import { ThemeProvider } from 'react-native-elements';
+import { elementsStyle } from 'shared/styling';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Root = (): JSX.Element => {
     return (
-        <View>
-            <App />
-        </View>
+        <ThemeProvider theme={elementsStyle}>
+            <SafeAreaProvider>
+                <App />
+            </SafeAreaProvider>
+        </ThemeProvider>
     );
 };
 
