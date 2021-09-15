@@ -16,6 +16,7 @@ const options: Options = {
 LiveAudioStream.on('data', (data) => {
     console.log(data);
 });
+
 const LiveAudioStreamView = () => {
     const startRecording = () => {
         RNPermissions.request('android.permission.RECORD_AUDIO').then((permission) => {
