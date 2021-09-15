@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
 import { DefaultTheme } from '@react-navigation/native';
-import { Input } from 'react-native-elements';
+import { Theme } from 'react-native-elements';
 
 export const palette = {
     primary: '#333333',
@@ -179,11 +178,6 @@ export const elementsStyle: Theme = {
         },
         errorStyle: {},
         placeholderTextColor: palette.medium
-    },
-    ListItem: {
-        titleStyle: {
-            color: palette.dark
-        }
     },
     colors: {
         primary: palette.primary,

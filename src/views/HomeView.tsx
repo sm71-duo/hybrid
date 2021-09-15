@@ -1,6 +1,5 @@
 import HomeOverview from 'components/home/HomeOverview';
 import React from 'react';
-import { View, Text } from 'react-native';
 import { spacing } from 'shared/styling';
 import styled from 'styled-components/native';
 
