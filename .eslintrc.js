@@ -26,6 +26,12 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto'
+      }
+    ],
     '@typescript-eslint/no-explicit-any': 'off',
     'react/display-name': 'off',
     'react/prop-types': 'off',
